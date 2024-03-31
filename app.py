@@ -2,6 +2,7 @@ import streamlit as st
 import preprocessor
 import matplotlib.pyplot as plt
 import seaborn as sns
+import helper
 
 st.sidebar.title("Whatsapp Chat Analyzer")
 
@@ -39,4 +40,11 @@ if uploaded_file is not None:
         with col4:
             st.header("Links Shared")
             st.title(num_links)
-
+        
+        # monthly timeline
+        st.title("Monthly Timeline")
+        timeline = helper.monthly_timeline(selected_user,df)
+        fig,ax = plt.subplots()
+        ax.plot(timeline['time'], timeline['message'],color='green')
+        plt.xticks(rotation='vertical')
+        st.pyplot(fig)
