@@ -105,3 +105,9 @@ def daily_timeline(selected_user,df):
 
     return daily_timeline
     
+def month_activity_map(selected_user,df):
+
+    if selected_user != 'Overall':
+        df = df[df['user'] == selected_user]
+
+    return df['month'].value_counts()
