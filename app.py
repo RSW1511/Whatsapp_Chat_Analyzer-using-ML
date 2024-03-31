@@ -12,7 +12,7 @@ if uploaded_file is not None:
     data = bytes_data.decode("utf-8")
     df = preprocessor.preprocess(data)
     st.dataframe(df)
-
+    st.text("Data Preprocessed")
  # fetch unique users
     user_list = df['user'].unique().tolist()
     #user_list.remove('group_notification')
