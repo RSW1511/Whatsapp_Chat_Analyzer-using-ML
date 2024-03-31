@@ -118,7 +118,7 @@ def month_activity_map(selected_user,df):
     if selected_user != 'Overall':
         df = df[df['user'] == selected_user]
 
-    return df['month'].value_counts(12)
+    return df['month'].value_counts()
 
 
 def activity_heatmap(selected_user,df):
