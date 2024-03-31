@@ -37,7 +37,8 @@ def preprocess(data):
     #df['day_name'] = df['date'].dt.day_name()
     df['hour'] = df['date'].dt.hour
     df['minute'] = df['date'].dt.minute
-
+    return df
+"""
     period = []
     for hour in df[['day_name', 'hour']]['hour']:
         if hour == 23:
@@ -48,4 +49,4 @@ def preprocess(data):
             period.append(str(hour) + "-" + str(hour + 1))
 
     df['period'] = period
-    return df
+"""
