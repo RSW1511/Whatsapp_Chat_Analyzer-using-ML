@@ -18,3 +18,9 @@ def fetch_stats(selected_user,df):
     words = []
     for message in df['message']:
         words.extend(message.split())
+
+def most_busy_users(df):
+    x = df['user'].value_counts().head()
+    df = round((df['user'].value_counts() / df.shape[0]) * 100, 2).reset_index().rename(
+        columns={'index': 'name', 'user': 'percent'})
+    return x,df
