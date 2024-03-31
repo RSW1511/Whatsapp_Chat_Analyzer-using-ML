@@ -47,4 +47,4 @@ if uploaded_file is not None:
         fig,ax = plt.subplots()
         ax.plot(timeline['time'], timeline['message'],color='green')
         plt.xticks(rotation='vertical')
-        st.pyplot(fig.size(20,3))
+        st.pyplot()
