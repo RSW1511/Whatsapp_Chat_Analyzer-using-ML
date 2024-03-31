@@ -20,7 +20,7 @@ def preprocess(data):
         entry = re.split('([\w\W]+?):\s', message)
         if entry[1:]:  # user name
             users.append(entry[1])
-            messages.append([2])
+            messages.append([0])
         else:
             users.append('group_notification')
             messages.append(entry[0])
@@ -28,6 +28,7 @@ def preprocess(data):
     df['user'] = users
     df['message'] = messages
     df.drop(columns=['user_message'], inplace=True)
+
 
     df['only_date'] = df['date'].dt.date
     df['year'] = df['date'].dt.year
@@ -37,6 +38,7 @@ def preprocess(data):
     df['day_name'] = df['date'].dt.day_name()
     df['hour'] = df['date'].dt.hour
     df['minute'] = df['date'].dt.minute
+
 
     period = []
     for hour in df[['day_name', 'hour']]['hour']:
@@ -48,5 +50,6 @@ def preprocess(data):
             period.append(str(hour) + "-" + str(hour + 1))
 
     df['period'] = period
+    
 
     return df   
